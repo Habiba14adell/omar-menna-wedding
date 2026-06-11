@@ -1,1 +1,255 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Omar & Menna</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#efdfcb;
+    overflow-x:hidden;
+}
+
+/* MUSIC BUTTON */
+
+#musicBtn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:9999;
+
+    display:none;
+
+    border:none;
+    background:#c6a27b;
+    color:white;
+
+    padding:12px 18px;
+
+    border-radius:30px;
+
+    font-family:Garamond, serif;
+    font-size:16px;
+
+    cursor:pointer;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+/* SECTION 1 */
+
+.hero{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    overflow:hidden;
+    background:#efdfcb;
+}
+
+/* MOSQUE BACKGROUND */
+
+.hero-bg{
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    width:65%; /* change to 80%, 90%, 100% as needed */
+    height:auto;
+
+    transform:translate(-50%,-50%);
+
+    opacity:0;
+
+    animation:bgFade 1.5s ease forwards;
+}
+
+/* INVITATION CARD */
+
+.card{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:min(92vw,520px);
+
+    opacity:0;
+
+    animation:
+        cardRise 1.7s ease forwards,
+        floatCard 4s ease-in-out infinite 2s;
+}
+
+/* ANIMATIONS */
+
+@keyframes bgFade{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+@keyframes cardRise{
+
+    0%{
+        opacity:0;
+        transform:translate(-50%,200px) scale(.85);
+    }
+
+    70%{
+        opacity:1;
+        transform:translate(-50%,-10px) scale(1.03);
+    }
+
+    100%{
+        opacity:1;
+        transform:translate(-50%,0) scale(1);
+    }
+
+}
+
+@keyframes floatCard{
+
+    0%,100%{
+        transform:translate(-50%,0);
+    }
+
+    50%{
+        transform:translate(-50%,-8px);
+    }
+
+}
+
+/* SECTION 2 PLACEHOLDER */
+
+.section{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#efdfcb;
+
+    color:#8d6f4d;
+
+    font-family:Garamond, serif;
+    font-size:32px;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+    .hero-bg{
+        width:95%;
+    }
+
+    .card{
+        width:90vw;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SECTION 1 -->
+
+<section class="hero">
+
+    <img
+        src="mosque-bg.png"
+        class="hero-bg"
+        alt="Mosque Background"
+    >
+
+    <img
+        src="card-flower.png"
+        class="card"
+        alt="Omar and Menna Invitation"
+    >
+
+</section>
+
+<!-- SECTION 2 -->
+
+<section class="section">
+
+    Wedding Details Coming Next
+
+</section>
+
+<!-- MUSIC -->
+
+<audio id="bgMusic" loop>
+    <source src="open.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn">
+    ♪ Play Music
+</button>
+
+<script>
+
+const bgMusic = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+window.addEventListener("load", () => {
+
+    bgMusic.volume = 0.4;
+
+    bgMusic.play()
+        .then(() => {
+
+            setTimeout(() => {
+                musicBtn.style.display = "none";
+            }, 1500);
+
+        })
+        .catch(() => {
+
+            musicBtn.style.display = "block";
+
+        });
+
+});
+
+musicBtn.addEventListener("click", () => {
+
+    bgMusic.play();
+
+    musicBtn.innerHTML = "♪ Music Playing";
+
+    setTimeout(() => {
+        musicBtn.style.display = "none";
+    }, 1500);
+
+});
+
+</script>
+
+</body>
+</html>
