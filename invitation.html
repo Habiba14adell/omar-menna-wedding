@@ -76,8 +76,23 @@ body{
 
     animation:bgFade 1.5s ease forwards;
 }
-
 .card{
+    position:absolute;
+
+    left:50%;
+    top:58%;
+
+    width:min(70vw,320px);
+
+    transform:translate(-50%,-50%);
+
+    opacity:0;
+
+    animation:
+        cardRise 1.7s ease forwards,
+        floatCard 4s ease-in-out infinite 2s;
+}
+/* .card{
     position:absolute;
 
     left:50%;
@@ -90,7 +105,7 @@ body{
     animation:
         cardRise 1.7s ease forwards,
         floatCard 4s ease-in-out infinite 2s;
-}
+} */
 
 /* ========================= */
 /* SECTION 2 */
@@ -181,17 +196,25 @@ body{
 /* MOBILE */
 /* ========================= */
 
+
 @media(max-width:768px){
 
-    .hero-bg{
-        width:95%;
-    }
+.hero{
+    height:100vh;
+}
 
-    .card{
-        width:90vw;
-    }
+.hero-bg{
+    width:140%;
+    top:55%;
+}
 
-    .location-section{
+.card{
+    width:62vw;
+    max-width:280px;
+
+    top:62%;
+}
+.location-section{
         flex-direction:column;
     }
 
