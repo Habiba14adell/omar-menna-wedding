@@ -78,7 +78,6 @@ body{
 }
 .card{
     position:absolute;
-
     left:50%;
     top:58%;
 
@@ -199,21 +198,36 @@ body{
 
 @media(max-width:768px){
 
-.hero{
-    height:100vh;
-}
+    .hero{
+        height:100vh;
+        position:relative;
+        overflow:hidden;
+    }
 
-.hero-bg{
-    width:140%;
-    top:55%;
-}
+    .hero-bg{
+        position:absolute;
 
-.card{
-    width:62vw;
-    max-width:280px;
+        left:50%;
+        bottom:0;
 
-    top:62%;
-}
+        width:180%;
+
+        transform:translateX(-50%);
+    }
+
+    .card{
+        position:absolute;
+
+        left:50%;
+        bottom:40px;
+
+        width:85vw;
+        max-width:420px;
+
+        transform:translateX(-50%);
+
+        z-index:10;
+    }
 .location-section{
         flex-direction:column;
     }
