@@ -16,75 +16,47 @@
 
 body{
     background:#efdfcb;
-    min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
     overflow:hidden;
 }
 
-.container{
+.wrapper{
     position:relative;
-    width:92vw;
-    max-width:700px;
+    width:100vw;
+    height:100vh;
 }
 
-.envelope{
+.landing{
     width:100%;
+    height:100%;
+    object-fit:contain;
     display:block;
 }
 
-.stamp{
+/* Invisible clickable seal area */
+.stamp-button{
     position:absolute;
 
     left:50%;
-    top:82%;
+    top:61%;
 
     transform:translate(-50%,-50%);
 
-    width:9vw;
-    min-width:40px;
-    max-width:60px;
+    width:90px;
+    height:90px;
 
     cursor:pointer;
-    transition:0.3s ease;
+
+    background:transparent;
+    border:none;
 }
 
-.stamp:hover{
-    transform:translate(-50%,-50%) scale(1.08);
-}
+@media (max-width:768px){
 
-.message{
-    position:absolute;
-
-    left:50%;
-    top:97%;
-
-    transform:translateX(-50%);
-
-    font-family:Garamond, serif;
-    font-size:clamp(18px,4vw,30px);
-
-    color:#c5aa88;
-
-    white-space:nowrap;
-}
-
-@media (max-width:480px){
-
-    .container{
-        width:92vw;
+    .stamp-button{
+        width:80px;
+        height:80px;
     }
 
-    .stamp{
-        width:11vw;
-    }
-
-    .message{
-        font-size:20px;
-    }
 }
 
 </style>
@@ -92,24 +64,19 @@ body{
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
     <img
-        src="envelope.png"
-        alt="Envelope"
-        class="envelope"
+        src="landing-page.png"
+        class="landing"
+        alt="Wedding Invitation"
     >
 
-    <img
-        src="stamp.png"
-        alt="Stamp"
-        class="stamp"
+    <button
+        class="stamp-button"
         onclick="openInvitation()"
-    >
-
-    <div class="message">
-        Open with care... Forever is inside
-    </div>
+        aria-label="Open Invitation">
+    </button>
 
 </div>
 
