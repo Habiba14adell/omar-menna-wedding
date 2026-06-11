@@ -17,10 +17,10 @@
 body{
     background:#efdfcb;
     overflow:hidden;
+    cursor:pointer;
 }
 
 .wrapper{
-    position:relative;
     width:100vw;
     height:100vh;
 }
@@ -32,37 +32,10 @@ body{
     display:block;
 }
 
-/* Invisible clickable seal area */
-.stamp-button{
-    position:absolute;
-
-    left:50%;
-    top:61%;
-
-    transform:translate(-50%,-50%);
-
-    width:90px;
-    height:90px;
-
-    cursor:pointer;
-
-    background:transparent;
-    border:none;
-}
-
-@media (max-width:768px){
-
-    .stamp-button{
-        width:80px;
-        height:80px;
-    }
-
-}
-
 </style>
 </head>
 
-<body>
+<body onclick="openInvitation()">
 
 <div class="wrapper">
 
@@ -72,30 +45,12 @@ body{
         alt="Wedding Invitation"
     >
 
-    <button
-        class="stamp-button"
-        onclick="openInvitation()"
-        aria-label="Open Invitation">
-    </button>
-
 </div>
-
-<audio id="sealSound">
-    <source src="open.mp3" type="audio/mpeg">
-</audio>
 
 <script>
 
 function openInvitation(){
-
-    const sound = document.getElementById("sealSound");
-
-    sound.play();
-
-    setTimeout(() => {
-        window.location.href = "invitation.html";
-    }, 1200);
-
+    window.location.href = "invitation.html";
 }
 
 </script>
