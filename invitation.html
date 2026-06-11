@@ -85,37 +85,10 @@ body{
 
     transform:translate(-50%, -50%);
     animation:
-
-    cardRise 1.7s ease forwards,
+        cardRise 1.7s ease forwards,
+        /* floatCard 4s ease-in-out infinite 2s; */
 
 }
-/* .card{
-    position:absolute;
-    left:50%;
-    top:80%;
-
-    width:min(70vw,320px);
-
-    opacity:0;
-
-    animation:
-        cardRise 1.7s ease forwards,
-        floatCard 4s ease-in-out infinite 2s;
-} */
-/* .card{
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    width:min(92vw,520px);
-
-    opacity:0;
-
-    animation:
-        cardRise 1.7s ease forwards,
-        floatCard 4s ease-in-out infinite 2s;
-} */
 
 /* ========================= */
 /* SECTION 2 */
@@ -254,12 +227,14 @@ body{
 
 .countdown span{
     font-family:Garamond, serif;
+    font-weight:bold;
     color:#8b1111;
     font-size:72px;
 }
 
 .countdown small{
     color:#8b1111;
+    font-weight:bold;
     letter-spacing:2px;
     font-size:14px;
 }
@@ -267,16 +242,83 @@ body{
 .date-row,
 .time-row{
     color:#8b1111;
-
     font-family:Garamond, serif;
+    font-weight:bold;
     font-size:42px;
-
     margin:15px 0;
 }
 
 .date-row span,
 .time-row span{
     margin-left:12px;
+}
+/* ========================= */
+/* SECTION 4 - PARKING */
+/* ========================= */
+
+.parking-section{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+}
+
+.parking-bg{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.parking-content{
+    position:relative;
+    z-index:2;
+
+    max-width:600px;
+}
+
+.parking-content h2{
+    font-family:Garamond, serif;
+    color:#8b1111;
+    font-size:72px;
+    margin-bottom:20px;
+}
+
+.parking-divider{
+    width:250px;
+    margin-bottom:40px;
+}
+
+.parking-content p{
+    font-family:Garamond, serif;
+    color:#8b1111;
+    font-size:26px;
+    line-height:1.6;
+
+    margin-bottom:50px;
+}
+
+/* GOLF CART */
+
+.golf-cart{
+    position:absolute;
+
+    bottom:40px;
+    left:-400px;
+
+    width:320px;
+
+    z-index:3;
+
+    animation:golfDrive 6s ease-out forwards;
 }
 /* ========================= */
 /* MOBILE */
@@ -377,6 +419,7 @@ body{
     .date-row,
     .time-row{
         font-size:28px;
+        
     }
 
 }
@@ -384,7 +427,17 @@ body{
 /* ========================= */
 /* ANIMATIONS */
 /* ========================= */
+@keyframes golfDrive{
 
+    from{
+        left:-400px;
+    }
+
+    to{
+        left:55%;
+    }
+
+}
 @keyframes bgFade{
 
     from{
@@ -513,8 +566,8 @@ body{
         >
 
     </div>
-<!-- SECTION 3 -->
 
+<!-- SECTION 3 -->
 </section>
 
 <section class="save-date">
@@ -546,12 +599,41 @@ body{
     </div>
 
     <div class="date-row">
-        📅 <span>17.07.2026</span>
+        ✦ <span>17.07.2026</span>
     </div>
 
     <div class="time-row">
-        🕔 <span>5:00 PM</span>
+        ✦  <span>5:00 PM</span>
     </div>
+
+<!-- SECTION 4 -->
+</section>
+<section class="parking-section">
+
+    <img src="parking-bg.png" class="parking-bg" alt="">
+
+    <div class="parking-content">
+
+        <h2>PARKING</h2>
+
+        <img src="divider.png" class="parking-divider" alt="">
+
+        <p>
+            Guest parking will be available<br>
+            at the designated location.
+        </p>
+
+        <p>
+            A golf car will be available<br>
+            to take you to The<br>
+            Muhammad Ali Mosque
+        </p>
+
+    </div>
+
+    <img src="golf-car.png"
+         class="golf-cart"
+         alt="Golf Cart">
 
 </section>
 
@@ -572,6 +654,7 @@ window.addEventListener("load", () => {
         });
 
 });
+
 
 musicBtn.addEventListener("click", () => {
 
