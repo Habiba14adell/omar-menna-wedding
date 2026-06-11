@@ -1,0 +1,121 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Omar & Menna</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        background:#efdfcb;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        overflow:hidden;
+        font-family: Garamond, serif;
+    }
+
+    .container{
+        position:relative;
+        width:90%;
+        max-width:1000px;
+    }
+
+    .envelope{
+        width:100%;
+        display:block;
+    }
+
+    .stamp{
+        position:absolute;
+        left:50%;
+        bottom:22%;
+        transform:translateX(-50%);
+        width:95px;
+        cursor:pointer;
+        transition:.3s ease;
+    }
+
+    .stamp:hover{
+        transform:translateX(-50%) scale(1.08);
+    }
+
+    .message{
+        position:absolute;
+        left:50%;
+        bottom:13%;
+        transform:translateX(-50%);
+        font-size:2rem;
+        color:#c3a483;
+        font-family:Garamond, serif;
+        text-align:center;
+        white-space:nowrap;
+    }
+
+    @media(max-width:768px){
+
+        .stamp{
+            width:70px;
+        }
+
+        .message{
+            font-size:1rem;
+            width:90%;
+            white-space:normal;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Envelope Image -->
+    <img src="envelope.png" class="envelope" alt="Envelope">
+
+    <!-- Clickable Stamp -->
+    <img
+        src="stamp.png"
+        class="stamp"
+        alt="Seal"
+        onclick="openInvitation()"
+    >
+
+    <!-- Text -->
+    <div class="message">
+        Open with care... Forever is inside
+    </div>
+
+</div>
+
+<!-- Sound -->
+<audio id="sealSound">
+    <source src="open.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function openInvitation() {
+
+    const sound = document.getElementById("sealSound");
+
+    sound.play();
+
+    setTimeout(() => {
+        window.location.href = "invitation.html";
+    }, 1200);
+}
+</script>
+
+</body>
+</html>
+```
