@@ -203,7 +203,81 @@ body{
     filter:brightness(.96);
 
 }
+/* ========================= */
+/* SAVE THE DATE */
+/* ========================= */
 
+.save-date{
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            rgba(239,223,203,.85),
+            rgba(239,223,203,.85)
+        ),
+        url("courtyard.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:80px 20px;
+}
+
+.save-date h2{
+    font-family:Garamond, serif;
+    color:#8b1111;
+    font-size:72px;
+    font-weight:400;
+
+    margin-bottom:20px;
+}
+
+.countdown{
+    display:flex;
+    gap:30px;
+
+    margin:50px 0;
+}
+
+.countdown div{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.countdown span{
+    font-family:Garamond, serif;
+    color:#8b1111;
+    font-size:72px;
+}
+
+.countdown small{
+    color:#8b1111;
+    letter-spacing:2px;
+    font-size:14px;
+}
+
+.date-row,
+.time-row{
+    color:#8b1111;
+
+    font-family:Garamond, serif;
+    font-size:42px;
+
+    margin:15px 0;
+}
+
+.date-row span,
+.time-row span{
+    margin-left:12px;
+}
 /* ========================= */
 /* MOBILE */
 /* ========================= */
@@ -257,7 +331,7 @@ body{
     }
 
     .location-image img{
-        width:100%;
+        width:110%;
         height:auto;
         display:block;
     }
@@ -274,7 +348,7 @@ body{
 
     .venue{
         font-size:24px;
-        margin-top:-140px;
+        margin-top:-180px;
 
     }
 
@@ -282,6 +356,29 @@ body{
         font-size:18px;
         padding:14px 30px;
     }
+        .save-date h2{
+        font-size:44px;
+        margin-top:-320px;
+    }
+    .countdown{
+        gap:15px;
+        margin-top:-95px;
+
+    }
+
+    .countdown span{
+        font-size:38px;
+    }
+
+    .countdown small{
+        font-size:10px;
+    }
+
+    .date-row,
+    .time-row{
+        font-size:28px;
+    }
+
 }
 
 /* ========================= */
@@ -402,7 +499,6 @@ body{
                 class="pin-icon"
                 alt=""
             >
-
             Location
 
         </a>
@@ -416,6 +512,45 @@ body{
             alt="Mosque"
         >
 
+    </div>
+<!-- SECTION 3 -->
+
+</section>
+
+<section class="save-date">
+
+    <h2>SAVE THE DATE</h2>
+
+    <img src="divider.png" class="divider-image" alt="divider">
+
+    <div id="countdown" class="countdown">
+        <div>
+            <span id="days">00</span>
+            <small>DAYS</small>
+        </div>
+
+        <div>
+            <span id="hours">00</span>
+            <small>HOURS</small>
+        </div>
+
+        <div>
+            <span id="minutes">00</span>
+            <small>MINS</small>
+        </div>
+
+        <div>
+            <span id="seconds">00</span>
+            <small>SECS</small>
+        </div>
+    </div>
+
+    <div class="date-row">
+        📅 <span>17.07.2026</span>
+    </div>
+
+    <div class="time-row">
+        🕔 <span>5:00 PM</span>
     </div>
 
 </section>
@@ -452,6 +587,42 @@ musicBtn.addEventListener("click", () => {
 
 });
 
+/* COUNTDOWN CODE */
+
+const weddingDate = new Date("2026-07-17T17:00:00").getTime();
+
+function updateCountdown(){
+
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 </script>
 
 </body>
