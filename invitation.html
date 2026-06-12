@@ -60,14 +60,33 @@ body{
     overflow:hidden;
     background:#efdfcb;
 }
-
 .hero-bg{
     position:absolute;
-
     top:50%;
-    left:65%;
+    left:50%;
 
-    width:140%;
+    width:100%;
+    height:110%;
+
+    object-fit:cover;
+
+    transform:translate(-50%,-50%);
+
+    opacity:0;
+    animation:bgFade 1.5s ease forwards;
+}
+
+.mobile-bg{
+    display:none;
+}
+
+/* .hero-bg{
+    position:absolute;
+
+    top:30%;
+    left:35%;
+
+    width:130%;
     height:auto;
 
     transform:translate(-50%,-50%);
@@ -75,20 +94,46 @@ body{
     opacity:0;
 
     animation:bgFade 1.5s ease forwards;
-}
+} */
 .card{
     position:absolute;
     left:50%;
-    top:65%;
+    top:70%;
 
     width:min(90vw, 500px);
 
     transform:translate(-50%, -50%);
     animation:
-        cardRise 1.7s ease forwards,
-        /* floatCard 4s ease-in-out infinite 2s; */
+    cardRise 1.7s ease forwards,
 
 }
+/* .card{
+    position:absolute;
+    left:50%;
+    top:80%;
+
+    width:min(70vw,320px);
+
+    opacity:0;
+
+    animation:
+        cardRise 1.7s ease forwards,
+        floatCard 4s ease-in-out infinite 2s;
+} */
+/* .card{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:min(92vw,520px);
+
+    opacity:0;
+
+    animation:
+        cardRise 1.7s ease forwards,
+        floatCard 4s ease-in-out infinite 2s;
+} */
 
 /* ========================= */
 /* SECTION 2 */
@@ -253,74 +298,6 @@ body{
     margin-left:12px;
 }
 /* ========================= */
-/* SECTION 4 - PARKING */
-/* ========================= */
-
-.parking-section{
-    position:relative;
-    min-height:100vh;
-    overflow:hidden;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-}
-
-.parking-bg{
-    position:absolute;
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-}
-
-.parking-content{
-    position:relative;
-    z-index:2;
-
-    max-width:600px;
-}
-
-.parking-content h2{
-    font-family:Garamond, serif;
-    color:#8b1111;
-    font-size:72px;
-    margin-bottom:20px;
-}
-
-.parking-divider{
-    width:250px;
-    margin-bottom:40px;
-}
-
-.parking-content p{
-    font-family:Garamond, serif;
-    color:#8b1111;
-    font-size:26px;
-    line-height:1.6;
-
-    margin-bottom:50px;
-}
-
-/* GOLF CART */
-
-.golf-cart{
-    position:absolute;
-
-    bottom:40px;
-    left:-400px;
-
-    width:320px;
-
-    z-index:3;
-
-    animation:golfDrive 6s ease-out forwards;
-}
-/* ========================= */
 /* MOBILE */
 /* ========================= */
 @media(max-width:768px){
@@ -341,6 +318,14 @@ body{
 
 
         transform:translate(-50%,-50%);
+    }
+
+    .mobile-bg{
+        display:block;
+    }
+
+    .desktop-bg{
+        display:none;
     }
 
     .card{
@@ -427,17 +412,7 @@ body{
 /* ========================= */
 /* ANIMATIONS */
 /* ========================= */
-@keyframes golfDrive{
 
-    from{
-        left:-400px;
-    }
-
-    to{
-        left:55%;
-    }
-
-}
 @keyframes bgFade{
 
     from{
@@ -502,7 +477,13 @@ body{
 
     <img
         src="mosque-bg.png"
-        class="hero-bg"
+        class="hero-bg mobile-bg"
+        alt="Mosque Background"
+    >
+
+    <img
+        src="mosque-bg-test.png"
+        class="hero-bg desktop-bg"
         alt="Mosque Background"
     >
 
@@ -566,8 +547,8 @@ body{
         >
 
     </div>
-
 <!-- SECTION 3 -->
+
 </section>
 
 <section class="save-date">
@@ -606,35 +587,6 @@ body{
         ✦  <span>5:00 PM</span>
     </div>
 
-<!-- SECTION 4 -->
-</section>
-<section class="parking-section">
-
-    <img src="parking-bg.png" class="parking-bg" alt="">
-
-    <div class="parking-content">
-
-        <h2>PARKING</h2>
-
-        <img src="divider.png" class="parking-divider" alt="">
-
-        <p>
-            Guest parking will be available<br>
-            at the designated location.
-        </p>
-
-        <p>
-            A golf car will be available<br>
-            to take you to The<br>
-            Muhammad Ali Mosque
-        </p>
-
-    </div>
-
-    <img src="golf-car.png"
-         class="golf-cart"
-         alt="Golf Cart">
-
 </section>
 
 <script>
@@ -654,7 +606,6 @@ window.addEventListener("load", () => {
         });
 
 });
-
 
 musicBtn.addEventListener("click", () => {
 
