@@ -395,6 +395,52 @@ body{
 
     animation:golfDrive 6s ease-out forwards;
 }
+
+.couple-section{
+    background:#efdfcb;
+    padding:80px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:60px;
+}
+
+.couple-image{
+    flex:1;
+}
+
+.couple-image img{
+    width:100%;
+    max-width:700px;
+    display:block;
+    border-radius:30px;
+}
+
+.couple-content{
+    flex:1;
+    text-align:center;
+}
+
+.couple-content h2{
+    font-family:Garamond, serif;
+    color:#8b1111;
+    font-size:72px;
+    font-weight:400;
+    margin-bottom:20px;
+}
+
+.couple-divider{
+    width:250px;
+    margin-bottom:30px;
+}
+
+.couple-content p{
+    font-family:Garamond, serif;
+    color:#8b1111;
+    font-size:26px;
+    line-height:1.7;
+    margin-bottom:25px;
+}
 /* ========================= */
 /* MOBILE */
 /* ========================= */
@@ -619,7 +665,32 @@ body{
         z-index:3;
     }
 
+    .couple-section{
+        flex-direction:column;
+        padding:50px 20px;
+        gap:30px;
+        margin:0;
+        padding:0;
+    }
+
+    .couple-image img{
+        width:100%;
+        border-radius:20px;
+    }
+
+    .couple-content h2{
+        font-size:42px;
+    }
+    .couple-content p{
+        font-size:20px;
+        line-height:1.5;
+        margin-top:-110;
+
+    }
+
 }
+
+
 
 /* ========================= */
 /* ANIMATIONS */
@@ -835,6 +906,28 @@ body{
     <img src="golf-car.png"
          class="golf-cart"
          alt="Golf Cart">
+
+</section>
+
+<section class="couple-section">
+
+    <div class="couple-content">
+
+        <p>
+            Two hearts, one journey, and a lifetime
+            of beautiful memories ahead.
+        </p>
+
+        <p>
+            We are grateful to celebrate this special
+            day with our family and friends.
+        </p>
+
+    </div>
+
+    <div class="couple-image">
+        <img src="OM.png" alt="Omar & Menna">
+    </div>
 
 </section>
 
