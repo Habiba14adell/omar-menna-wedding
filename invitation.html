@@ -105,16 +105,12 @@ body{
 
 .location-content{
     width:50%;
-
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-
     text-align:center;
-
     padding:60px;
-
     gap:30px; /* controls spacing */
 }
 
@@ -134,8 +130,10 @@ body{
 }
 
 .location-icon{
-    width:90px;
-    margin-bottom:25px;
+    width:500px;
+    margin:0;
+    padding:0;
+
 }
 
 
@@ -524,23 +522,26 @@ body{
     }
 
     .location-icon{
-        display:none;
-    }
-
+    width:150px;
+    margin:30px auto;
+    display:block;
+}
     .venue{
-        font-size:20px;
+        font-size:21px;
         line-height:1.35;
         margin:0;
 
     }
 
     .location-btn{
-        font-size:18px;
-        padding:12px 30px;
+        font-size:25px;
+        /* padding:12px 30px; */
         display:inline-flex;
         align-items:center;
-        gap:8px;
-        margin-top:4px;
+        /* gap:2px;
+        margin-top:4px; */
+        justify-content:center; 
+
     }
     .save-date{
 
@@ -799,11 +800,11 @@ body{
             alt=""
         >
 
-        <!-- <img
-            src="location-icon.png"
+        <img
+            src="mosque-pin.png"
             class="location-icon"
             alt=""
-        > -->
+        >
 
         <p class="venue">
             Saladin Citadel Mosque<br>
@@ -815,11 +816,11 @@ body{
             target="_blank"
             class="location-btn">
 
-            <img
+            <!-- <img
                 src="location-pin.png"
                 class="pin-icon"
                 alt=""
-            >
+            > -->
             Location
 
         </a>
@@ -929,7 +930,7 @@ body{
         <img src="OM.png" alt="Omar & Menna">
     </div>
 
-    
+
 </section>
 
 <script>
