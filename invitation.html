@@ -201,9 +201,6 @@ body{
 .save-date-panel{
     width:min(870px, 100%);
     min-height:580px;
-
-    background:#f9ead8;
-
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -220,7 +217,7 @@ body{
     margin-bottom:20px;
 }
 
-.countdown{
+/* .countdown{
     display:flex;
     gap:30px;
     justify-content:center;
@@ -228,20 +225,17 @@ body{
     flex-wrap:wrap;
 
     margin:50px 0;
+} */
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(3,70px);
+    justify-content:center;
+    gap:12px;
 }
 
 .countdown div{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    width:138px;
-    height:156px;
-
-    background:#fff;
-    border-radius:24px;
-    box-shadow:0 14px 30px rgba(122,86,49,.12);
+    width:70px;
 }
 
 .countdown span{
@@ -254,7 +248,7 @@ body{
 }
 
 .countdown small{
-    font-family:Arial, sans-serif;
+    font-family:Garamond;
     color:#70472e;
     font-weight:400;
     letter-spacing:0;
@@ -283,14 +277,14 @@ body{
     margin:0;
 }
 
-.date-row::before,
+/* .date-row::before,
 .time-row::before{
     content:"";
     width:36px;
     height:36px;
     flex:0 0 auto;
     margin-right:14px;
-}
+} */
 
 /* .date-row::before{
     border:2px solid #b44935;
@@ -544,7 +538,6 @@ body{
 
     }
     .save-date{
-
         padding:18px 14px;
     }
 
@@ -554,9 +547,10 @@ body{
     }
 
     .save-date h2{
-        font-size:44px;
+        font-size:51px;
         margin-top:0;
         margin-bottom:18px;
+        font-weight: 600;
     }
 
     .save-date .divider-image{
@@ -565,44 +559,53 @@ body{
     }
 
     .countdown{
-        gap:15px;
-        margin:-45px 0 26px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin:-90px 0 30px;
+    flex-wrap:nowrap;
+}
 
-
-    }
-
+/* Remove card appearance */
     .countdown div{
-        width:78px;
-        height:96px;
-        border-radius:18px;
-    }
+    width:70px;
+    text-align:center;   
+    background:none;
+    box-shadow:none;
+    border:none;
+    border-radius:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 
     .countdown span{
-        font-size:28px;
-        margin-bottom:12px;
-    }
+    font-size:54px;
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    color:#8B0000;
+    line-height:1;
+    margin-bottom:10px;
+}
 
     .countdown small{
-        font-size:13px;
-    }
-
-    .date-row span{
-        font-size:28px;
-    }
-
-    .time-row span{
-        font-size:22px;
-    }
-
-    .date-row::before,
-    .time-row::before{
-        width:30px;
-        height:30px;
-    }
-
-    .date-row{
-        margin:8px 0 20px;
-    }
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#8B0000;
+}
+.date-row,
+.time-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-left:auto;
+    margin-right:auto;
+    width:fit-content;
+}
 
     .parking-section{
         min-height:auto;
@@ -862,19 +865,14 @@ body{
             <span id="minutes">00</span>
             <small>Minutes</small>
         </div>
-
-        <div>
-            <span id="seconds">00</span>
-            <small>Seconds</small>
-        </div>
     </div>
 
     <div class="date-row">
-         <span>✦ 17.07.2026</span>
+         <span>17.07.2026</span>
     </div>
 
     <div class="time-row">
-          <span>✦ 5:00 PM</span>
+          <span>5:00 PM</span>
     </div>
 
     </div>
@@ -918,12 +916,7 @@ body{
             Two hearts, one journey, and a lifetime
             of beautiful memories ahead.
         </p>
-
-        <p>
-            We are grateful to celebrate this special
-            day with our family and friends.
-        </p>
-
+        
     </div>
 
     <div class="couple-image">
@@ -993,11 +986,11 @@ function updateCountdown(){
         (distance % (1000 * 60))
         / 1000
     );
+    document.getElementById("days").textContent =String(days).padStart(2, "0");
+    document.getElementById("hours").textContent =String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent =String(minutes).padStart(2, "0");
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+
 }
 
 updateCountdown();
