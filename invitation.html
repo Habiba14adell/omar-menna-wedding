@@ -56,38 +56,40 @@ body{
 .hero{
     position:relative;
     width:100%;
-    height:85vh;
+    height:100vh;
     overflow:hidden;
     background:#efdfcb;
 }
+.desktop-bg{
+        display:block;
+    }
+
+.mobile-bg{
+        display:none;
+    }
 
 .hero-bg{
     position:absolute;
-
     top:50%;
-    left:65%;
-
-    width:140%;
+    left:50%;
+    width:110%;
     height:auto;
-
     transform:translate(-50%,-50%);
-
     opacity:0;
-
     animation:bgFade 1.5s ease forwards;
 }
+
 .card{
     position:absolute;
     left:50%;
     top:65%;
-
-    width:min(90vw, 500px);
-
+    width:min(90vw, 620px);
     transform:translate(-50%, -50%);
-    animation:
-        cardRise 1.7s ease forwards,
-        /* floatCard 4s ease-in-out infinite 2s; */
 
+    animation:
+        cardRise 1.14s ease forwards;
+
+    z-index:20;
 }
 
 /* ========================= */
@@ -183,18 +185,14 @@ body{
 
 .save-date{
     min-height:50vh;  
-     margin:0;
+    margin:0;
     padding:0;
-
     background:#efdfcb;
-
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-
     text-align:center;
-
     padding:22px 20px;
 }
 
@@ -211,7 +209,7 @@ body{
 .save-date h2{
     font-family:Garamond, serif;
     color:#8b1111;
-    font-size:72px;
+    font-size:57px;
     font-weight:400;
 
     margin-bottom:20px;
@@ -447,6 +445,14 @@ body{
 
     }
 
+    .desktop-bg{
+        display:none;
+    }
+
+    .mobile-bg{
+        display:block;
+    }
+
     .hero-bg{
         position:absolute;
 
@@ -467,7 +473,7 @@ body{
 
         width:120vw;
         max-width:1800px;
-
+        animation:cardRise 1.14s ease forwards;
         z-index:20;
     }
 
@@ -508,7 +514,7 @@ body{
     }
 
     .location-content .divider-image{
-        width:min(230px, 80%);
+        width:400px;
         height:28px;
         margin:0;
         object-fit:cover;
@@ -539,6 +545,11 @@ body{
     }
     .save-date{
         padding:18px 14px;
+        background:
+            linear-gradient(rgba(239,223,203,.52), rgba(239,223,203,.52)),
+            url("save-time-bg.png");
+        background-size:cover;
+        background-position:center;
     }
 
     .save-date-panel{
@@ -554,7 +565,7 @@ body{
     }
 
     .save-date .divider-image{
-        width:380px;
+        width:400px;
         margin-top:-140px;
     }
 
@@ -598,6 +609,40 @@ body{
 }
 .date-row,
 .time-row{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    margin:15px 0;
+}
+
+.calendar-icon{
+    position:absolute;
+    left:50%;
+    transform:translateX(-150px); /* adjust if needed */
+}
+.time-icon{
+    position:absolute;
+    left:50%;
+    transform:translateX(-120px); /* adjust if needed */
+}
+.calendar-icon{
+    width:95px;
+    height:88px;
+}
+
+.time-icon{
+    width:95px;
+    height:88px;
+}
+
+.date-row span,
+.time-row span{
+    text-align:center;
+}
+/* .date-row,
+.time-row{
     display:flex;
     justify-content:center;
     align-items:center;
@@ -605,7 +650,7 @@ body{
     margin-left:auto;
     margin-right:auto;
     width:fit-content;
-}
+} */
 
     .parking-section{
         min-height:auto;
@@ -614,7 +659,7 @@ body{
         padding:58px 22px 0;
         flex-direction:column;
         background:
-            linear-gradient(rgba(239,223,203,.62), rgba(239,223,203,.62)),
+            linear-gradient(rgba(239,223,203,.42), rgba(239,223,203,.42)),
             url("save-time-bg.png");
         background-size:cover;
         background-position:center;
@@ -623,14 +668,14 @@ body{
     }
 
     .parking-bg{
-        display:none;
+        display:block;
     }
 
     .parking-content{
         width:100%;
         max-width:100%;
         padding:38px 18px 0;
-        background:rgba(249,234,216,.74);
+        /* background:rgba(249,234,216,.74); */
     }
 
     .parking-content h2{
@@ -679,7 +724,7 @@ body{
 
     .couple-image img{
         width:100%;
-        border-radius:20px;
+        border-radius:14px;
     }
 
     .couple-content h2{
@@ -723,35 +768,26 @@ body{
 }
 
 @keyframes cardRise{
-
-    0%{
+    from{
         opacity:0;
-        transform:translate(-50%,200px) scale(.85);
+        margin-top:80px;
     }
 
-    70%{
+    to{
         opacity:1;
-        transform:translate(-50%,-10px) scale(1.03);
+        margin-top:0;
     }
-
-    100%{
-        opacity:1;
-        transform:translate(-50%,0) scale(1);
-    }
-
 }
-
-@keyframes floatCard{
-
+@keyframes cardFloat{
     0%,100%{
-        transform:translate(-50%,0);
+        margin-top:0;
     }
 
     50%{
-        transform:translate(-50%,-8px);
+        margin-top:-12px;
     }
-
 }
+
 
 </style>
 </head>
@@ -774,7 +810,13 @@ body{
 
     <img
         src="mosque-bg.png"
-        class="hero-bg"
+        class="hero-bg mobile-bg"
+        alt="Mosque Background"
+    >
+
+    <img
+        src="mosque-bg-test.png"
+        class="hero-bg desktop-bg"
         alt="Mosque Background"
     >
 
@@ -810,7 +852,7 @@ body{
         >
 
         <p class="venue">
-            Saladin Citadel Mosque<br>
+            Saladin Citadel - Mosque<br>
             Cairo
         </p>
 
@@ -868,11 +910,14 @@ body{
     </div>
 
     <div class="date-row">
-         <span>17.07.2026</span>
+            <img src="calendar-icon.png" alt="Calendar" class="calendar-icon">
+            <span>17.07.2026</span>
     </div>
 
     <div class="time-row">
-          <span>5:00 PM</span>
+        <img src="time-icon.png" alt="Time" class="time-icon">
+        <span>5:00 PM</span>
+    </div>
     </div>
 
     </div>
