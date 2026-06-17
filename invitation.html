@@ -207,39 +207,55 @@ body{
 
     min-height:700px;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    display:grid;
+    place-items:center;
 
     text-align:center;
 
-    padding:40px;
+    padding:28px 24px;
 
     background:
         linear-gradient(
-            rgba(239,223,203,.55),
-            rgba(239,223,203,.55)
+            rgba(239,223,203,.18),
+            rgba(239,223,203,.18)
         ),
-        url("save-time-bg.png");
+        url("bg.png");
 
     background-size:cover;
-    background-position:center;
+    background-position:58% center;
 }
+
+.save-date-panel{
+    width:min(78vw, 980px);
+    min-height:650px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    padding:56px 64px;
+
+    background:rgba(248,239,224,.78);
+}
+
 /* TITLE */
 
 .save-date h2{
     font-family:Garamond, serif;
     color:#8b1111;
-    font-size:66px;
+    font-size:64px;
     font-weight:400;
     line-height:1;
-    margin-top: 10px;
+    margin:0 0 24px;
 }
 
 .save-date .divider-image{
-    width:500px;
-    max-width:250%;
+    width:440px;
+    max-width:90%;
+    height:16px;
+    margin:0 auto 54px;
+    object-fit:cover;
+    object-position:center;
 
 }
 
@@ -247,10 +263,9 @@ body{
 .countdown{
     display:flex;
     justify-content:center;
-    align-items:flex-end;
-    gap:55px;
-    margin:0;
-    margin-top:-120px;
+    align-items:flex-start;
+    gap:22px;
+    margin:0 0 48px;
 
 }
 
@@ -264,7 +279,7 @@ body{
     font-family:Garamond, serif;
     color:#8b1111;
 
-    font-size:78px;
+    font-size:56px;
     font-weight:400;
     line-height:1;
 }
@@ -277,7 +292,7 @@ body{
     font-family:Garamond, serif;
     color:#8b1111;
 
-    font-size:24px;
+    font-size:17px;
     text-transform:uppercase;
 }
 
@@ -287,22 +302,22 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:15px;
-    margin-top:15px;
-    margin-left: -90px;
+    gap:16px;
+    margin:0 0 22px;
 }
 
 .calendar-icon{
-    width:110px;
-    height:110px;
-    margin-right:-40px;
+    width:44px;
+    height:44px;
+    margin:0;
+    object-fit:contain;
 }
 
 .date-row span{
     font-family:Garamond, serif;
     color:#8b1111;
     text-align:center;
-    font-size:64px;
+    font-size:48px;
     font-weight:700;
     line-height:1;
 }
@@ -313,16 +328,15 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    margin-top:2px;
-    margin-left: -90px;
-
-    gap:15px;
+    margin:0;
+    gap:16px;
 }
 
 .time-icon{
-    width:110px;
-    height:110px;
-    margin-right:-40px;
+    width:44px;
+    height:44px;
+    margin:0;
+    object-fit:contain;
 
 }
 
@@ -331,7 +345,7 @@ body{
     color:#8b1111;
     text-align:center;
 
-    font-size:48px;
+    font-size:32px;
     font-weight:700;
     line-height:1;
 }
@@ -345,35 +359,44 @@ body{
 .parking-section{
     position:relative;
 
-    min-height:620px;
+    min-height:700px;
 
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
+    display:grid;
+    place-items:center;
 
-    padding:58px 40px 35px;
+    padding:28px 24px;
 
     overflow:hidden;
 
     background:
         linear-gradient(
-            rgba(239,223,203,.55),
-            rgba(239,223,203,.55)
+            rgba(239,223,203,.18),
+            rgba(239,223,203,.18)
         ),
-        url("save-time-bg.png");
+        url("bg.png");
 
     background-size:cover;
-    background-position:center;
+    background-position:58% center;
 }
 
 .parking-content{
     position:relative;
     z-index:2;
 
-    width:calc(100% - 120px);
-    max-width:1200px;
+    width:min(78vw, 980px);
+    min-height:650px;
 
     text-align:center;
+
+    display:grid;
+    grid-template-columns:.95fr 1.05fr;
+    grid-template-rows:auto 1fr;
+    align-items:center;
+    column-gap:28px;
+
+    padding:94px 78px 54px;
+
+    background:rgba(248,239,224,.78);
 }
 
 /* TITLE */
@@ -382,17 +405,21 @@ body{
     font-family:Garamond, serif;
     color:#8b1111;
 
-    font-size:66px;
+    grid-column:1 / -1;
+
+    font-size:48px;
     font-weight:400;
     line-height:1;
 
-    margin-bottom:20px;
+    margin:0 0 22px;
 }
 
 /* DIVIDER */
 
 .parking-divider{
-    width:500px;
+    grid-column:1 / -1;
+
+    width:440px;
     max-width:90%;
     height:16px;
     display:block;
@@ -400,62 +427,92 @@ body{
     object-fit:cover;
     object-position:center;
 
-    margin:0 auto 34px;
+    margin:0 auto 46px;
 }
 
 /* TEXT */
 
+.parking-text{
+    align-self:start;
+    padding-top:12px;
+}
+
 .parking-content p{
-    max-width:700px;
+    max-width:430px;
 
     margin:0 auto;
 
     font-family:Garamond, serif;
     color:#8b1111;
 
-    font-size:32px;
-    line-height:1.5;
+    font-size:24px;
+    font-weight:700;
+    line-height:1.42;
 }
 
 .parking-content p + p{
-    margin-top:14px;
+    margin-top:16px;
+    font-size:20px;
 }
 
 /* GOLF CART */
 
 .golf-cart{
-    position:absolute;
-    bottom:40px;
-    left:-400px;
-    width:420px;
+    position:relative;
+    grid-column:2;
+    grid-row:2;
+    justify-self:center;
+    align-self:end;
+    width:min(38vw, 430px);
 
     z-index:3;
 
-    animation:golfDrive 1s ease-out forwards;
+    animation:none;
 }
 .couple-section{
     background:#efdfcb;
-    padding:80px 6%;
+    padding:25px 3% 0;
+    min-height:620px;
     display:flex;
+    flex-direction:column;
     align-items:center;
-    justify-content:center;
-    gap:60px;
+    justify-content:flex-end;
 }
 
 .couple-image{
-    flex:1;
+    width:min(82vw, 780px);
+    margin:0 auto;
 }
 
 .couple-image img{
     width:100%;
-    max-width:700px;
+    max-width:none;
     display:block;
-    border-radius:30px;
+    border-radius:16px;
+    box-shadow:0 22px 52px rgba(83,54,28,.22);
+}
+
+.footer-image{
+    width:min(88vw, 1100px);
+    /* margin:0 auto; */
+    margin:-400px 0 0;
+
+}
+
+.footer-image img{
+    width:100%;
+    display:block;
 }
 
 .couple-content{
-    flex:1;
+    position:relative;
+    z-index:2;
+    width:min(78vw, 760px);
+    margin:0 auto;
+    padding:42px 48px;
     text-align:center;
+    background:rgba(248,239,224,.86);
+    box-shadow:0 14px 34px rgba(83,54,28,.13);
 }
 
 .couple-content h2{
@@ -474,9 +531,9 @@ body{
 .couple-content p{
     font-family:Garamond, serif;
     color:#8b1111;
-    font-size:26px;
-    line-height:1.7;
-    margin-bottom:25px;
+    font-size:32px;
+    line-height:1.48;
+    margin-bottom:0;
 }
 /* ========================= */
 /* MOBILE */
@@ -587,31 +644,32 @@ body{
 
     .save-date{
         min-height:auto;
-        padding:32px 18px 20px;
+        padding:24px 16px 14px;
         background:
-            linear-gradient(rgba(239,223,203,.52), rgba(239,223,203,.52)),
-            url("save-time-bg.png");
+            linear-gradient(rgba(239,223,203,.18), rgba(239,223,203,.18)),
+            url("bg.png");
         background-size:cover;
-        background-position:center;
+        background-position:58% center;
     }
 
     .save-date-panel{
         min-height:auto;
         width:100%;
-        padding:0;
+        padding:34px 16px 30px;
+        background:rgba(248,239,224,.78);
     }
 
     .save-date h2{
-        font-size:clamp(40px, 10vw, 48px);
+        font-size:clamp(34px, 9.2vw, 42px);
         margin-top:0;
-        margin-bottom:10px;
+        margin-bottom:8px;
         font-weight: 400;
     }
 
     .save-date .divider-image{
         width:min(84vw, 360px);
         height:18px;
-        margin:0 auto 28px;
+        margin:0 auto 24px;
         object-fit:cover;
         object-position:center;
     }
@@ -620,13 +678,13 @@ body{
         display:flex;
         justify-content:center;
         align-items:flex-start;
-        gap:clamp(10px, 3.2vw, 18px);
-        margin:0 0 28px;
+        gap:clamp(2px, 1vw, 6px);
+        margin:0 0 22px;
         flex-wrap:nowrap;
     }
 
     .countdown div{
-        width:clamp(68px, 22vw, 86px);
+        width:clamp(52px, 17vw, 64px);
         text-align:center;
         background:none;
         box-shadow:none;
@@ -639,7 +697,7 @@ body{
     }
 
     .countdown span{
-        font-size:clamp(42px, 12vw, 54px);
+        font-size:clamp(34px, 9.4vw, 44px);
         font-family:Garamond, serif;
         font-weight:500;
         color:#8B0000;
@@ -648,9 +706,9 @@ body{
     }
 
     .countdown small{
-        font-size:13px;
+        font-size:11px;
         text-transform:uppercase;
-        letter-spacing:.8px;
+        letter-spacing:.6px;
         color:#8B0000;
     }
 
@@ -660,18 +718,19 @@ body{
         display:grid;
         place-items:center;
         width:100%;
-        margin:14px 0;
+        margin:8px 0;
         margin-left:0;
-        min-height:56px;
+        min-height:52px;
     }
 
     .calendar-icon,
     .time-icon{
+        display:block;
         position:absolute;
-        right:calc(50% + 104px);
         top:50%;
-        width:42px;
-        height:42px;
+        right:calc(50% + 98px);
+        width:28px;
+        height:28px;
         margin:0;
         transform:translateY(-50%);
         object-fit:contain;
@@ -679,25 +738,25 @@ body{
 
     .date-row span,
     .time-row span{
-        font-size:clamp(34px, 9vw, 44px);
+        display:block;
+        width:100%;
+        font-size:clamp(32px, 8.6vw, 40px);
         text-align:center;
     }
 
 .parking-section{
     min-height:auto;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:flex-start;
+    display:grid;
+    place-items:center;
 
-    padding:24px 22px 26px;
+    padding:24px 16px 0;
 
     background:
-        linear-gradient(rgba(239,223,203,.42), rgba(239,223,203,.42)),
-        url("save-time-bg.png");
+        linear-gradient(rgba(239,223,203,.18), rgba(239,223,203,.18)),
+        url("bg.png");
 
     background-size:cover;
-    background-position:center;
+    background-position:58% center;
 
     margin:0;
 }
@@ -710,13 +769,18 @@ body{
     .parking-content{
         width:100%;
         max-width:100%;
-        padding:0;
+        min-height:auto;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        padding:42px 18px 0;
+        background:rgba(248,239,224,.78);
     }
 
     .parking-content h2{
         font-size:40px;
         line-height:1;
-        margin-bottom:10px;
+        margin-bottom:8px;
     }
 
     .parking-divider{
@@ -725,18 +789,30 @@ body{
         height:18px;
         object-fit:cover;
         object-position:center;
-        margin-bottom:20px;
+        margin-bottom:18px;
     }
 
     .parking-content p{
-        font-size:22px;
-        line-height:1.45;
-        margin-bottom:12px;
+        font-size:clamp(21px, 5.6vw, 24px);
+        line-height:1.42;
+        margin-bottom:10px;
+    }
+
+    .parking-content p + p{
+        font-size:clamp(19px, 5vw, 22px);
+        margin-top:8px;
+    }
+
+    .parking-text{
+        padding-top:0;
+        width:100%;
     }
 
     .golf-cart{
         position:relative;
-        width:min(86vw, 360px);
+        grid-column:auto;
+        grid-row:auto;
+        width:min(78vw, 330px);
         height:auto;
         max-width:100%;
         object-fit:contain;
@@ -744,29 +820,63 @@ body{
         right:auto;
         left:0;
         bottom:auto;
-        margin-top:-28px;
+        margin-top:0;
+        margin-bottom:-14px;
         animation:none;
         z-index:3;
     }
 
     .couple-section{
+        display:flex;
         flex-direction:column;
-        padding:42px 20px 0;
-        gap:30px;
+        padding:24px 14px 0;
+        min-height:auto;
+        justify-content:flex-end;
+        gap:5px;
         margin:0;
+        background:#efdfcb;
+    }
+
+    .couple-content{
+        width:100%;
+        padding:26px 16px 24px;
+        margin:0 auto;
+        background:rgba(248,239,224,.88);
+        box-shadow:0 10px 24px rgba(83,54,28,.13);
+        order:1;
+    }
+
+    .couple-image{
+        width:100%;
+        margin:0;
+        order:2;
     }
 
     .couple-image img{
         width:100%;
-        border-radius:14px;
+        max-width:100%;
+        border-radius:12px;
+        box-shadow:0 14px 30px rgba(83,54,28,.18);
+    }
+
+    .footer-image{
+        width:100%;
+        margin:-40px 0 0;
+        order:3;
+    }
+
+    .footer-image img{
+        width:100%;
+        display:block;
     }
 
     .couple-content h2{
         font-size:42px;
     }
     .couple-content p{
-        font-size:20px;
-        line-height:1.5;
+        font-size:clamp(21px, 5.8vw, 25px);
+        line-height:1.42;
+        margin-bottom:0;
         margin-top:0;
 
     }
@@ -941,6 +1051,11 @@ body{
                 <span id="minutes">00</span>
                 <small>Minutes</small>
             </div>
+
+            <div>
+                <span id="seconds">00</span>
+                <small>Secs</small>
+            </div>
         </div>
 
         <div class="date-row">
@@ -958,29 +1073,30 @@ body{
 </section>
 <section class="parking-section">
 
-    <!-- <img src="save-time-bg.png" class="parking-bg" alt=""> -->
-
     <div class="parking-content">
 
         <h2>PARKING</h2>
 
         <img src="divider.png" class="parking-divider" alt="">
 
-        <p>
-            Guest parking will be available at the designated location.
-        </p>
+        <div class="parking-text">
+            <p>
+                Guest parking will be available<br>
+                at the designated location.
+            </p>
 
-        <p>
-            A golf car will be available<br>
-            to take you to The<br>
-            Muhammad Ali Mosque
-        </p>
+            <p>
+                A golf car will be available<br>
+                to take you to The Muhammad Ali<br>
+                Mosque
+            </p>
+        </div>
+
+        <img src="golf-car.png"
+             class="golf-cart"
+             alt="Golf Cart">
 
     </div>
-
-    <img src="golf-car.png"
-         class="golf-cart"
-         alt="Golf Cart">
 
 </section>
 
@@ -997,6 +1113,10 @@ body{
 
     <div class="couple-image">
         <img src="om.png" alt="Omar & Menna">
+    </div>
+
+    <div class="footer-image">
+        <img src="footer.png" alt="Mosque footer illustration">
     </div>
 
 
@@ -1065,6 +1185,7 @@ function updateCountdown(){
     document.getElementById("days").textContent =String(days).padStart(2, "0");
     document.getElementById("hours").textContent =String(hours).padStart(2, "0");
     document.getElementById("minutes").textContent =String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent =String(seconds).padStart(2, "0");
 
 
 }
