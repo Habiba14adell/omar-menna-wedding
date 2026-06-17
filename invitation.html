@@ -484,12 +484,11 @@ body{
 @media(max-width:668px){
 
     .hero{
-        height:100vh;
+        height:100svh;
         position:relative;
         overflow:hidden;
         margin:0;
         padding:0;
-
     }
 
     .desktop-bg{
@@ -502,24 +501,19 @@ body{
 
     .hero-bg{
         position:absolute;
-
         left:50%;
-        top:70%;
-
-        width:180%;
-
-
+        top:56%;
+        width:100%;
+        height:100%;
+        object-fit:cover;
         transform:translate(-50%,-50%);
     }
 
     .card{
         position:absolute;
-
         left:50%;
-        top:75%;
-
-        width:120vw;
-        max-width:1800px;
+        top:71%;
+        width:min(150vw, 660px);
         animation:cardRise 1.14s ease forwards;
         z-index:20;
     }
@@ -529,21 +523,22 @@ body{
         margin:0;
         padding:0;
         flex-direction:column;
+        height:auto;
         min-height:auto;
     }
 
     .location-content{
-
         width:100%;
         min-height:auto;
-        padding:34px 24px 30px;
-        gap:14px;
+        padding:34px 20px 28px;
+        gap:16px;
         justify-content:flex-start;
+        transform:none;
     }
 
     .location-image{
         width:100%;
-        height:420px;
+        height:clamp(280px, 66vw, 390px);
         overflow:hidden;
     }
 
@@ -556,42 +551,43 @@ body{
     }
 
     .location-content h2{
-        font-size:32px;
+        font-size:clamp(30px, 8vw, 36px);
         line-height:1.2;
+        margin:0;
     }
 
     .location-content .divider-image{
-        width:400px;
-        height:28px;
+        width:min(82vw, 340px);
+        height:18px;
         margin:0;
         object-fit:cover;
         object-position:center;
     }
 
     .location-icon{
-    width:150px;
-    margin:30px auto;
-    display:block;
-}
+        width:clamp(92px, 27vw, 124px);
+        margin:4px auto 0;
+        display:block;
+    }
+
     .venue{
-        font-size:21px;
+        font-size:clamp(20px, 5.4vw, 23px);
         line-height:1.35;
         margin:0;
-
     }
 
     .location-btn{
-        font-size:25px;
-        /* padding:12px 30px; */
+        width:min(72vw, 230px);
+        height:54px;
+        font-size:22px;
         display:inline-flex;
         align-items:center;
-        /* gap:2px;
-        margin-top:4px; */
-        justify-content:center; 
-
+        justify-content:center;
     }
+
     .save-date{
-        padding:18px 14px;
+        min-height:auto;
+        padding:32px 18px 20px;
         background:
             linear-gradient(rgba(239,223,203,.52), rgba(239,223,203,.52)),
             url("save-time-bg.png");
@@ -601,102 +597,91 @@ body{
 
     .save-date-panel{
         min-height:auto;
-        padding:34px 14px 42px;
+        width:100%;
+        padding:0;
     }
 
     .save-date h2{
-        font-size:48px;
+        font-size:clamp(40px, 10vw, 48px);
         margin-top:0;
-        margin-bottom:18px;
+        margin-bottom:10px;
         font-weight: 400;
     }
 
     .save-date .divider-image{
-        width:400px;
-        margin-top:-140px;
+        width:min(84vw, 360px);
+        height:18px;
+        margin:0 auto 28px;
+        object-fit:cover;
+        object-position:center;
     }
 
     .countdown{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:12px;
-    margin:-90px 0 30px;
-    flex-wrap:nowrap;
-}
+        display:flex;
+        justify-content:center;
+        align-items:flex-start;
+        gap:clamp(10px, 3.2vw, 18px);
+        margin:0 0 28px;
+        flex-wrap:nowrap;
+    }
 
     .countdown div{
-    width:70px;
-    text-align:center;   
-    background:none;
-    box-shadow:none;
-    border:none;
-    border-radius:0;
-    padding:0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
+        width:clamp(68px, 22vw, 86px);
+        text-align:center;
+        background:none;
+        box-shadow:none;
+        border:none;
+        border-radius:0;
+        padding:0;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
 
     .countdown span{
-    font-size:54px;
-    font-family:'Cormorant Garamond', serif;
-    font-weight:500;
-    color:#8B0000;
-    line-height:1;
-    margin-bottom:10px;
-}
+        font-size:clamp(42px, 12vw, 54px);
+        font-family:Garamond, serif;
+        font-weight:500;
+        color:#8B0000;
+        line-height:1;
+        margin-bottom:8px;
+    }
 
     .countdown small{
-    font-size:14px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    color:#8B0000;
-}
-.date-row,
-.time-row{
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    width:100%;
-    margin:15px 0;
-}
+        font-size:13px;
+        text-transform:uppercase;
+        letter-spacing:.8px;
+        color:#8B0000;
+    }
 
-.calendar-icon{
-    position:absolute;
-    left:50%;
-    transform:translateX(-165px); /* adjust if needed */
-}
-.time-icon{
-    position:absolute;
-    left:50%;
-    transform:translateX(-120px); /* adjust if needed */
-}
-.calendar-icon{
-    width:95px;
-    height:88px;
-}
+    .date-row,
+    .time-row{
+        position:relative;
+        display:grid;
+        place-items:center;
+        width:100%;
+        margin:14px 0;
+        margin-left:0;
+        min-height:56px;
+    }
 
-.time-icon{
-    width:95px;
-    height:88px;
-}
+    .calendar-icon,
+    .time-icon{
+        position:absolute;
+        right:calc(50% + 104px);
+        top:50%;
+        width:42px;
+        height:42px;
+        margin:0;
+        transform:translateY(-50%);
+        object-fit:contain;
+    }
 
-.date-row span,
-.time-row span{
-    text-align:center;
-}
-/* .date-row,
-.time-row{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
-    margin-left:auto;
-    margin-right:auto;
-    width:fit-content;
-} */
+    .date-row span,
+    .time-row span{
+        font-size:clamp(34px, 9vw, 44px);
+        text-align:center;
+    }
 
 .parking-section{
     min-height:auto;
@@ -705,7 +690,7 @@ body{
     align-items:center;
     justify-content:flex-start;
 
-    padding:50px 22px 30px;
+    padding:24px 22px 26px;
 
     background:
         linear-gradient(rgba(239,223,203,.42), rgba(239,223,203,.42)),
@@ -725,52 +710,50 @@ body{
     .parking-content{
         width:100%;
         max-width:100%;
-        padding:10px 18px 0;
-        /* background:rgba(249,234,216,.74); */
+        padding:0;
     }
 
     .parking-content h2{
         font-size:40px;
         line-height:1;
-        margin-bottom:18px;
+        margin-bottom:10px;
     }
 
     .parking-divider{
-        width:489.8px;
+        width:min(82vw, 340px);
         max-width:100%;
-        height:15.3px;
+        height:18px;
         object-fit:cover;
         object-position:center;
-        margin-bottom:50px;
+        margin-bottom:20px;
     }
 
     .parking-content p{
         font-size:22px;
         line-height:1.45;
-        margin-bottom:20px;
+        margin-bottom:12px;
     }
 
     .golf-cart{
         position:relative;
-        width:414.1px;
-        height:404.6px;
-        max-width:none;
+        width:min(86vw, 360px);
+        height:auto;
+        max-width:100%;
         object-fit:contain;
-        align-self:flex-end;
+        align-self:center;
         right:auto;
-        left:118px;
+        left:0;
         bottom:auto;
-        margin-top:-165px;
+        margin-top:-28px;
         animation:none;
         z-index:3;
     }
 
     .couple-section{
         flex-direction:column;
-        padding:50px 20px;
+        padding:42px 20px 0;
         gap:30px;
         margin:0;
-        padding:0;
     }
 
     .couple-image img{
@@ -784,7 +767,7 @@ body{
     .couple-content p{
         font-size:20px;
         line-height:1.5;
-        margin-top:-110;
+        margin-top:0;
 
     }
 
@@ -939,38 +922,36 @@ body{
 
     <div class="save-date-panel">
 
-    <h2>SAVE THE DATE</h2>
+        <h2>SAVE THE DATE</h2>
 
-    <img src="divider.png" class="divider-image" alt="divider">
+        <img src="divider.png" class="divider-image" alt="divider">
 
-    <div id="countdown" class="countdown">
-        <div>
-            <span id="days">00</span>
-            <small>Days</small>
+        <div id="countdown" class="countdown">
+            <div>
+                <span id="days">00</span>
+                <small>Days</small>
+            </div>
+
+            <div>
+                <span id="hours">00</span>
+                <small>Hours</small>
+            </div>
+
+            <div>
+                <span id="minutes">00</span>
+                <small>Minutes</small>
+            </div>
         </div>
 
-        <div>
-            <span id="hours">00</span>
-            <small>Hours</small>
-        </div>
-
-        <div>
-            <span id="minutes">00</span>
-            <small>Minutes</small>
-        </div>
-    </div>
-
-    <div class="date-row">
+        <div class="date-row">
             <img src="calendar-icon.png" alt="Calendar" class="calendar-icon">
             <span>17.07.2026</span>
-    </div>
+        </div>
 
-    <div class="time-row">
-        <img src="time-icon.png" alt="Time" class="time-icon">
-        <span>5:00 PM</span>
-    </div>
-    </div>
-
+        <div class="time-row">
+            <img src="time-icon.png" alt="Time" class="time-icon">
+            <span>5:00 PM</span>
+        </div>
     </div>
 
 <!-- SECTION 4 -->
